@@ -22,6 +22,14 @@ import { white } from 'color-name';
 import ListItem from '@material-ui/core/ListItem';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -109,6 +117,23 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: fade(theme.palette.common.white, 0.15),
     color: 'black',
   },
+  /* root: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 140,
+  }, */
+  details: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  content: {
+    flex: '1 0 auto',
+  },
+  cover: {
+    width: 151,
+  },
+
 }));
 const flexContainer = {
   display: 'flex',
@@ -119,11 +144,15 @@ const flexItemContainer = {
   padding: '0px 45px 0px 20px',
   fontWeight: 'bold'
 }
+const fontCard = {
+  fontWeight: 'bold'
+}
 
 export default function PrimarySearchAppBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [value, setValue] = React.useState(0);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -220,42 +249,8 @@ export default function PrimarySearchAppBar() {
           <WidgetsIcon className={classes.widgetSpace} />
           <Typography className={classes.bookmarkSpace} variant="h6" noWrap>WIDGET
           </Typography>
-          {/* <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
-          </Typography> */}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            {/* <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton> */}
-            {/* <div className={classes.search}>
-            <div className={classes.searchIcon}> */}
-            {/* <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div> */}
             <IconButton aria-label="search" color="inherit">
               <SearchIcon />
             </IconButton>
@@ -317,7 +312,6 @@ export default function PrimarySearchAppBar() {
               <ListItem style={flexItemContainer}
               primaryText="foo2"
               secondaryText="bar2">People</ListItem>
-              <Divider />
           </List>
         </div>
         <Typography className={classes.endSpace} variant="h6" noWrap>
@@ -328,22 +322,103 @@ export default function PrimarySearchAppBar() {
           <Grid item xs={1}>
           </Grid>
           <Grid item xs={10}>
-            <Paper className={classes.paper}>xs=12</Paper>
+          <Card className={classes.root}>
+          <div className={classes.details}><CardMedia
+        component="img"
+        alt="Climate Strikes"
+        height="140"
+        image="/Assets/images/iceberg.jpg"
+        title="Climate Strikes"
+      /></div>
+        <CardContent className={classes.content}>
+          <Typography component="h5" variant="h5">
+            Fresh wave of climate strikes takes place around the world
+          </Typography>
+        </CardContent>
+    </Card>
           </Grid>
           <Grid item xs={1}>
           </Grid>
           <Grid item xs={1}>
           </Grid>
-          <Grid item xs={12} sm={5}>
-            <Paper className={classes.paper}>xs=12 sm=6</Paper>
+          <Grid item xs={12} sm={4}>
+            <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          alt="Arctic Sea"
+          height="140"
+          image="/Assets/images/penguine.jpg"
+          title="Arctic Sea"
+        />
+        <CardContent className={fontCard}>
+          <Typography variant="body2" color="textSecondary" component="p">
+            Arctic sea extent hits record low for winter maximum
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+      </CardActions>
+    </Card>
           </Grid>
-          <Grid item xs={12} sm={5}>
-            <Paper className={classes.paper}>xs=12 sm=6</Paper>
+          <Grid item xs={12} sm={3}>
+            <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          alt="Phone Battery"
+          height="140"
+          image="/Assets/images/phonebattery.jpg"
+          title="Phone Battery"
+        />
+        <CardContent className={fontCard}>
+          <Typography variant="body2" color="textSecondary" component="p">
+            New battery for smartphone can now charge in a minute
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+      </CardActions>
+    </Card>
+          </Grid>
+          <Grid item xs={12} sm={3}>
+            <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          alt="Tropical Plants"
+          height="140"
+          image="/Assets/images/tropicalplants.jpg"
+          title="Tropical Plants"
+        />
+        <CardContent className={fontCard}>
+          <Typography variant="body2" color="textSecondary" component="p">
+            The Best Tropical Plants You Can Grow Indoors
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+      </CardActions>
+    </Card>
           </Grid>
           <Grid item xs={1}>
           </Grid>
         </Grid>
       </div>
+      <BottomNavigation
+  value={value}
+  onChange={(event, newValue) => {
+    setValue(newValue);
+  }}
+  showLabels
+  className={classes.root}
+>
+  <BottomNavigationAction label="About Us" />
+  <BottomNavigationAction label="Terms and Conditions" />
+  <BottomNavigationAction label="Privacy Policy" />
+  <BottomNavigationAction label="Contact" />
+  <BottomNavigationAction label="2019 All rights reserved" />
+</BottomNavigation>
       {renderMobileMenu}
       {renderMenu}
     </div>
