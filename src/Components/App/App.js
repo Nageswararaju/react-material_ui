@@ -284,34 +284,25 @@ export default function PrimarySearchAppBar() {
         <Typography className={classes.startSpace} variant="h6" noWrap>
         </Typography>
         <div>
-          <List style={flexContainer}>
+        <List style={flexContainer}>
             <ListItem style={flexItemContainer}
-              primaryText="foo1"
-              secondaryText="bar1">Trending</ListItem>
+              >Trending</ListItem>
             <ListItem style={flexItemContainer}
-              primaryText="foo2"
-              secondaryText="bar2">For You</ListItem>
+              >For You</ListItem>
               <ListItem style={flexItemContainer}
-              primaryText="foo2"
-              secondaryText="bar2">Cooking</ListItem>
+              >Cooking</ListItem>
               <ListItem style={flexItemContainer}
-              primaryText="foo2"
-              secondaryText="bar2">Nature</ListItem>
+              >Nature</ListItem>
               <ListItem style={flexItemContainer}
-              primaryText="foo2"
-              secondaryText="bar2">Science</ListItem>
+              >Science</ListItem>
               <ListItem style={flexItemContainer}
-              primaryText="foo2"
-              secondaryText="bar2">Travel</ListItem>
+              >Travel</ListItem>
               <ListItem style={flexItemContainer}
-              primaryText="foo2"
-              secondaryText="bar2">Climate</ListItem>
+             >Climate</ListItem>
               <ListItem style={flexItemContainer}
-              primaryText="foo2"
-              secondaryText="bar2">Music</ListItem>
+              >Music</ListItem>
               <ListItem style={flexItemContainer}
-              primaryText="foo2"
-              secondaryText="bar2">People</ListItem>
+              >People</ListItem>
           </List>
         </div>
         <Typography className={classes.endSpace} variant="h6" noWrap>
@@ -351,7 +342,7 @@ export default function PrimarySearchAppBar() {
           image="/Assets/images/penguine.jpg"
           title="Arctic Sea"
         />
-        <CardContent className={fontCard}>
+        <CardContent >
           <Typography variant="body2" color="textSecondary" component="p">
             Arctic sea extent hits record low for winter maximum
           </Typography>
@@ -371,7 +362,7 @@ export default function PrimarySearchAppBar() {
           image="/Assets/images/phonebattery.jpg"
           title="Phone Battery"
         />
-        <CardContent className={fontCard}>
+        <CardContent className={classes.content}>
           <Typography variant="body2" color="textSecondary" component="p">
             New battery for smartphone can now charge in a minute
           </Typography>
@@ -391,7 +382,7 @@ export default function PrimarySearchAppBar() {
           image="/Assets/images/tropicalplants.jpg"
           title="Tropical Plants"
         />
-        <CardContent className={fontCard}>
+        <CardContent className={classes.content}>
           <Typography variant="body2" color="textSecondary" component="p">
             The Best Tropical Plants You Can Grow Indoors
           </Typography>
